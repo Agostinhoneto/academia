@@ -20,7 +20,10 @@ Route::get('/', function () {
 Route::prefix('alunos')->group(function(){
     Route::get('/',[AlunoController::class,'index'])->name('alunos-index');
     Route::post('/create',[AlunoController::class,'create'])->name('alunos-create');
- 
+    Route::post('/',[AlunoController::class,'store'])->name('alunos-store');
+    Route::get('/{id}/edit',[AlunoController::class,'edit'])->where('id','[0-9]+')->name('alunos-edit');
+    Route::put('/{id}',[AlunoController::class,'update'])->where('id','[0-9]+')->name('alunos-update');
+    Route::delete('/{id}',[AlunoController::class,'destroy'])->where('id','[0-9]+')->name('alunos-destroy');
  });
  
  Route::fallback(function(){
