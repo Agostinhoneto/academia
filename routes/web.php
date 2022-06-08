@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AlunoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('alunos')->group(function(){
+    Route::get('/',[AlunoController::class,'index'])->name('alunos-index');
+    Route::post('/create',[AlunoController::class,'create'])->name('alunos-create');
+ 
+ });
+ 
+ Route::fallback(function(){
+    return "Erro@";
+ });
+ 
