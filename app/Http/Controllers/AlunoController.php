@@ -15,13 +15,20 @@ class AlunoController extends Controller
       
         return view('alunos.index',['alunos'=>$alunos]);
     }
- /*
-    public function store(AlunoStoreRequest $request)
+    
+    public function create()
+    {
+     
+       return view('alunos.create');
+    }
+
+
+    public function store(Request $request)
     {      
         Aluno::create($request->all());
         return redirect()->route('alunos-index');
     }
-*/
+
     public function storeAluno(Request $request)
     {
       $request->validate([

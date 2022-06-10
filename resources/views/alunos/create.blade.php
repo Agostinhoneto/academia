@@ -7,7 +7,7 @@
     <br>
     <h1>Criar novo Jogo</h1>
     <hr>
-    <form action="{{route('jogos-store')}}" method="POST">
+    <form action="{{route('alunos-store')}}" method="POST">
       @csrf
       <div class="form-group">
         <div class="form-group">
@@ -21,7 +21,7 @@
         </div>
         <br>
         <div class="form-group">
-          <label for="nome">Cpf </label>
+          <label for="nome">Data de Nascimento </label>
           <input type="number" class="form-control" name="data_nascimento" placeholder="Digite Data de Nascimento...">
         </div>
    
