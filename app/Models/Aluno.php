@@ -12,7 +12,6 @@ class Aluno extends Model
     protected $fillable = [
         'nome',
         'cpf',
-        'data_nascimento',
-       
+        'data_nascimento', 
      ];
 }

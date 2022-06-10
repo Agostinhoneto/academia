@@ -4,7 +4,7 @@ use app\Http\Request\AlunoStoreRequest;
 namespace App\Http\Controllers;
 use App\Models\Aluno;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 
 class AlunoController extends Controller
 {
@@ -32,15 +32,15 @@ class AlunoController extends Controller
     public function storeAluno(Request $request)
     {
       $request->validate([
-        'name' => 'required',
-        'categoria' => 'required',
+        'nome' => 'required',
+        'cpf' => 'required',
+        
       ]);
     }
 
     public function edit($id)
     {
       $alunos = Aluno::where('id',$id)->first();
-    
       if(!empty($alunos)){
             return view('alunos.edit',['alunos'=>$alunos]);
         }
@@ -53,9 +53,8 @@ class AlunoController extends Controller
     {
       $data = [
         'nome' => $request->nome,
-        'categoria' => $request->categoria,
-        'ano_criacao' => $request->ano_criacao,
-        'valor'   => $request->valor,
+        'cpf' => $request->cpf,
+        'data_nascimento' => $request->data_nascimento,
       ];
 
       Aluno::where('id',$id)->update($data);

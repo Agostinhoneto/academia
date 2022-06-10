@@ -25,8 +25,19 @@ Route::prefix('alunos')->group(function(){
     Route::put('/{id}',[AlunoController::class,'update'])->where('id','[0-9]+')->name('alunos-update');
     Route::delete('/{id}',[AlunoController::class,'destroy'])->where('id','[0-9]+')->name('alunos-destroy');
  });
- 
+
  Route::fallback(function(){
     return "Erro@";
  });
  
+ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ 
+ Route::middleware([
+     'auth:sanctum',
+     config('jetstream.auth_session'),
+     'verified'
+ ])->group(function () {
+     Route::get('/dashboard', function () {
+         return view('dashboard');
+     })->name('dashboard');
+ });

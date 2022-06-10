@@ -20,7 +20,7 @@
         <th>{{$aluno->id}}</th>
         <th>{{$aluno->nome}}</th>
         <th>{{$aluno->cpf}}</th>
-        <th>{{$aluno->data_nascimento}}</th>
+        <th>{{ date('d/m/Y',strtotime($aluno->data_nascimento))}}</th>
         <th>
           <a href="{{ route('alunos-edit', ['id'=>$aluno->id])}}">Editar</a>
           <form action="{{route('alunos-destroy', ['id'=>$aluno->id]) }}" method="POST">
