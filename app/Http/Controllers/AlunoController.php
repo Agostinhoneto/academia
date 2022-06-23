@@ -26,6 +26,7 @@ class AlunoController extends Controller
     public function store(Request $request)
     {      
         Aluno::create($request->all());
+        dd($request);
         return redirect()->route('alunos-index');
     }
 
