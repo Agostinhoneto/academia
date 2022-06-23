@@ -13,5 +13,9 @@ class Aluno extends Model
         'nome',
         'cpf',
         'data_nascimento', 
+        'sexo',
+        'endereco',
+        'telefone',
+        'cep',
      ];
 }

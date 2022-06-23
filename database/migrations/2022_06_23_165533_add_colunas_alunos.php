@@ -14,7 +14,7 @@ class AddColunasAlunos extends Migration
         public function up()
         {
             Schema::table('alunos', function (Blueprint $table) {
-                $table->string('sexo')->nullable()->change();
+                $table->string('sexo');
                 $table->string('endereco');
                 $table->string('telefone');
                 $table->string('cep');
@@ -29,6 +29,7 @@ class AddColunasAlunos extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('alunos');
+
     }
 }
