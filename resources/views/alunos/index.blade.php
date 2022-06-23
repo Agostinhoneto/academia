@@ -10,8 +10,12 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nome</th>
-        <th scope="col">CPF</th>
-        <th scope="col">Data de Nascimento</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">CPF</th>  
+        <th scope="col">Data Nascimento</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">telefone</th>
+        <th scope="col">cep</th>
       </tr>
     </thead>
     <tbody>
@@ -19,8 +23,12 @@
       <tr>
         <th>{{$aluno->id}}</th>
         <th>{{$aluno->nome}}</th>
+        <th>{{$aluno->endereco}}</th>
         <th>{{$aluno->cpf}}</th>
         <th>{{ date('d/m/Y',strtotime($aluno->data_nascimento))}}</th>
+        <th>{{ $aluno->sexo}}</th>
+         <th>{{$aluno->telefone}}</th>
+        <th>{{$aluno->cep}}</th>
         <th>
           <a href="{{ route('alunos-edit', ['id'=>$aluno->id])}}">Editar</a>
           <form action="{{route('alunos-destroy', ['id'=>$aluno->id]) }}" method="POST">

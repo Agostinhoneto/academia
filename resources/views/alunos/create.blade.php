@@ -30,7 +30,7 @@ $( function() {
         <br>
         <div class="col-sm-6 col-form-label">
           <label for="nome">Endereço: </label>
-          <input type="text" class="form-control" name="sexo" placeholder="Endereço.">
+          <input type="text" class="form-control" name="endereco" placeholder="Endereço.">
         </div>
         <br>
         <div  class="col-sm-4 col-form-label">
@@ -53,13 +53,13 @@ $( function() {
         <div class="col-sm-2 col-form-label">
           <label for="nome">Telefone: </label>
           <br>
-          <input type="text" class="form-control" name="sexo" placeholder="Telefone.">
+          <input type="text" class="form-control" name="telefone" placeholder="Telefone.">
         </div>
         <br>
         <div class="col-sm-2 col-form-label">
           <label for="nome">CEP: </label>
           <br>
-          <input type="text" class="form-control" name="sexo" placeholder="CEP.">
+          <input type="text" class="form-control" name="cep" placeholder="CEP.">
         </div>
         <br>
         <div class="form-group">

@@ -11,10 +11,10 @@ class Aluno extends Model
 
     protected $fillable = [
         'nome',
+        'endereco',
         'cpf',
         'data_nascimento', 
         'sexo',
-        'endereco',
         'telefone',
         'cep',
      ];

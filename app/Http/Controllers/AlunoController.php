@@ -25,9 +25,18 @@ class AlunoController extends Controller
 
     public function store(Request $request)
     {      
-        Aluno::create($request->all());
-        dd($request);
-        return redirect()->route('alunos-index');
+       $aluno = new Aluno;
+       $aluno->nome = $request->nome; 
+       $aluno->endereco = $request->endereco; 
+       $aluno->cpf = $request->cpf; 
+       $aluno->data_nascimento = Carbon::parse($request->data_nascimento)->format('Y-m-d');
+       $aluno->sexo = $request->sexo; 
+       $aluno->telefone = $request->telefone; 
+       $aluno->cep = $request->cep; 
+     
+       $aluno->save();
+
+       return redirect()->route('alunos-index');
     }
 
     public function storeAluno(Request $request)
@@ -56,6 +65,10 @@ class AlunoController extends Controller
         'nome' => $request->nome,
         'cpf' => $request->cpf,
         'data_nascimento' => $request->data_nascimento,
+        'endereco' => $request->endereco,
+        'sexo' => $request->sexo,
+        'telefone' => $request->telefone,
+        'cep' => $request->cep,
       ];
 
       Aluno::where('id',$id)->update($data);
