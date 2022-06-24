@@ -17,5 +17,6 @@ class Aluno extends Model
         'sexo',
         'telefone',
         'cep',
+        'status',
      ];
 }

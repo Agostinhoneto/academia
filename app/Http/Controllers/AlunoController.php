@@ -1,11 +1,12 @@
 <?php
 
-use app\Http\Request\AlunoStoreRequest;
 namespace App\Http\Controllers;
+use App\Http\Request\AlunoStoreRequest;
 use App\Models\Aluno;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use App\Interfaces\Aluno\StatusAluno;
+use Illuminate\Support\Facades\DB;
 class AlunoController extends Controller
 {
     public function index()
@@ -23,8 +24,10 @@ class AlunoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(AlunoStoreRequest $request)
     {      
+      DB::beginTransaction();
+      try {
        $aluno = new Aluno;
        $aluno->nome = $request->nome; 
        $aluno->endereco = $request->endereco; 
@@ -33,10 +36,15 @@ class AlunoController extends Controller
        $aluno->sexo = $request->sexo; 
        $aluno->telefone = $request->telefone; 
        $aluno->cep = $request->cep; 
-     
+       $aluno->status = StatusAluno::ATIVO;
        $aluno->save();
-
-       return redirect()->route('alunos-index');
+       DB::commit();
+       return redirect()->route('alunos-index')->with('sucesso', 'Cadastro Concluido');
+      }
+      catch (\Exception $e) {
+        DB::rollback(); 
+          return redirect()->route('alunos-index')->with('erro', 'Houve um erro no cadastro');
+      }
     }
 
     public function storeAluno(Request $request)

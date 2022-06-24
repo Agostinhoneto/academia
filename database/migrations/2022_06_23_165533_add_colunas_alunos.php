@@ -18,7 +18,7 @@ class AddColunasAlunos extends Migration
                 $table->string('endereco');
                 $table->string('telefone');
                 $table->string('cep');
-
+                $table->integer('status');
             });
         }      
     

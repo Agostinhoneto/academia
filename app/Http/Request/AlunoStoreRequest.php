@@ -25,9 +25,19 @@ class AlunoStoreRequest extends FormRequest
     {
         return [
             'nome' => 'required',
-           // 'categoria' => 'required',
+            'endereco' => 'required',
             //'ano_criacao' => 'required',
             //'valor' => 'required',
         ];
     }
+
+    public function messages()
+{
+    return [
+        'nome.required' => 'Nome é requerido',
+        //'body.required' => 'A message is required',
+    ];
+}
+
+
 }
