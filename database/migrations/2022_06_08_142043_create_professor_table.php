@@ -13,7 +13,7 @@ class CreateProfessorTable extends Migration
      */
     public function up()
     {
-        Schema::create('professor', function (Blueprint $table) {
+        Schema::create('professores', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateProfessorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('professor');
+        Schema::dropIfExists('professores');
     }
 }

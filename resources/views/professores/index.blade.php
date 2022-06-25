@@ -4,7 +4,7 @@
 <div class="container mt-5"> 
   <table class="table">
     <thead>
-      <h1>Listagem de Alunos</h1>
+      <h1>Listagem de Professores</h1>
       <hr>
       <br>
       <tr>
@@ -19,26 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($alunos as $aluno )
-      <tr>
-        <th>{{$aluno->id}}</th>
-        <th>{{$aluno->nome}}</th>
-        <th>{{$aluno->endereco}}</th>
-        <th>{{$aluno->cpf}}</th>
-        <th>{{ date('d/m/Y',strtotime($aluno->data_nascimento))}}</th>
-        <th>{{ $aluno->sexo}}</th>
-         <th>{{$aluno->telefone}}</th>
-        <th>{{$aluno->cep}}</th>
-        <th>
-          <a href="{{ route('alunos-edit', ['id'=>$aluno->id])}}">Editar</a>
-          <form action="{{route('alunos-destroy', ['id'=>$aluno->id]) }}" method="POST">
-            @csrf
-            @method('delete') 
-            <button type="submit" class="btn btn-danger">Deletar</button>
-          </form>
-        </th>
-      </tr>
-      @endforeach
+        
     </tbody>
   </table>
   <br>

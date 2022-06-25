@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\ProfessorController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,9 @@ Route::prefix('alunos')->group(function(){
     Route::delete('/{id}',[AlunoController::class,'destroy'])->where('id','[0-9]+')->name('alunos-destroy');
  });
 
+ Route::prefix('professores')->group(function(){
+    Route::get('/',[ProfessorController::class,'index'])->name('professores-index'); 
+ });
  Route::fallback(function(){
     return "Erro@";
  });
@@ -41,7 +46,7 @@ Route::prefix('alunos')->group(function(){
          return view('dashboard');
      })->name('dashboard');
  });
- 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
