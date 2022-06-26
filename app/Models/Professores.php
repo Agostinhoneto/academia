@@ -10,7 +10,9 @@ class Professores extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nome',
+        'name',
+        'cpf',
+        'data_nascimento',
      ];
 
 }
