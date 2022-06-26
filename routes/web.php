@@ -30,6 +30,9 @@ Route::prefix('alunos')->group(function(){
 
  Route::prefix('professores')->group(function(){
     Route::get('/',[ProfessorController::class,'index'])->name('professores-index'); 
+    Route::get('/create',[ProfessorController::class,'create'])->name('professores-create');
+    Route::post('/',[ProfessorController::class,'store'])->name('professores-store');
+
  });
  Route::fallback(function(){
     return "Erro@";

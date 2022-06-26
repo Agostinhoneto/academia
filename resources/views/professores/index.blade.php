@@ -23,7 +23,7 @@
     </tbody>
   </table>
   <br>
-  <a href="{{route('alunos-create')}}" class="btn btn-primary">Add Novo Aluno</a> 
+  <a href="{{route('professores-create')}}" class="btn btn-primary">Add Novo Professor</a> 
   
 </div>  
 @endsection
